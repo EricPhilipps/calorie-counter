@@ -15,22 +15,29 @@ const axios = require('axios').default;
 // });
 
 router.get('/',(req,res)=>{
+  // Make a request for a user with a given ID
+  // try {
+  //   const userCal = await Calorie.create(req.body);
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
 
-    // Make a request for a user with a given ID
-    axios.get('https://api.calorieninjas.com/v1/nutrition?query='+query,{
+  console.log(req.body);
+  
+  axios.get('https://api.calorieninjas.com/v1/nutrition?query='+query,{
     headers: {
-            'X-Api-Key': process.env.CUMAR_API_KEY
-          }
-        }
-        )
-      .then(function (response) {
-        // handle success
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
+      'X-Api-Key': process.env.API_KEY
+    }
+  }
+  )
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
 })
 
 module.exports = router;
