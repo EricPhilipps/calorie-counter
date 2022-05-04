@@ -25,12 +25,6 @@ const calorieLogHandler = (event) => {
         
       }
     })
-    //console.log(response.json());
-    // if(response.ok){
-    //  // console.log("working");
-    //   document.location.reload();
-    // }
-    //document.location.replace('/api/calories/test');
   }
 };
 
