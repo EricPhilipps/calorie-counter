@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,5 +35,16 @@
 </nav>
     <div class="calendar" id="calendar"></div>
     <a href=""></a>
+    <div>
+    <form action="../controllers/api/calorie-ninja-routes.js">
+    <label for="food-item">Food:</label>
+    <input type="text" id="food-item" name="food-item"><br><br>
+    <label for="amount">Amount:</label>
+    <input type="text" id="amount" name="amount">
+    <label for="unit">Unit:</label>
+    <input type="text" id="unit" name="unit"><br><br>
+    <input type="submit" value="Submit">
+    </form>
+    </div>
 </body>
 </html>
