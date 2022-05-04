@@ -14,7 +14,7 @@ const axios = require('axios').default;
 //   else console.log(body)
 // });
 
-router.get('/',(req,res)=>{
+router.post('/',(req,res)=>{
   // try {
   //   const userCal = await Calorie.create(req.body);
   // } catch (err) {
@@ -23,7 +23,7 @@ router.get('/',(req,res)=>{
 
   console.log(req.body);
 
-  userQuery = req.body.amount + req.body.unit + ' ' + req.body.food
+  let userQuery = req.body.amount + req.body.unit + ' ' + req.body.food
   
   axios.get('https://api.calorieninjas.com/v1/nutrition?query='+userQuery,{
     headers: {
@@ -33,12 +33,17 @@ router.get('/',(req,res)=>{
   )
   .then(function (response) {
     // handle success
-    console.log(response.data);
+    console.log(response.data.items);
+    res.json(response.data.items);
   })
   .catch(function (error) {
     // handle error
     console.log(error);
   })
 })
+
+// router.get('/test', (req,res)=>{
+// res.render('test')
+// })
 
 module.exports = router;
