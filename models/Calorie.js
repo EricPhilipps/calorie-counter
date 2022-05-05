@@ -25,6 +25,7 @@ Calorie.init(
         },
         date_id: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             references: {
                 model: 'date',
                 key: 'id'

@@ -24,14 +24,18 @@ const calorieLogHandler = (event) => {
         const saveBtn = document.createElement("button");
         saveBtn.innerHTML = "Save";
         saveBtn.id = "save-btn";
+        saveBtn.setAttribute("data-food",data[i].name);
+        saveBtn.setAttribute("data-amount",amount);
+        saveBtn.setAttribute("data-unit",unit)
+        saveBtn.setAttribute("data-calorie",data[i].calories);
 
         listItem.textContent = 
           "Food: " + data[i].name +
           " Amount: " + amount + unit +
           " Servings: " + data[i].serving_size_g +
           " Calories: " + data[i].calories;
-        calorieUl.appendChild(listItem);
-        listItem.appendChild(saveBtn);
+          listItem.appendChild(saveBtn);
+          calorieUl.appendChild(listItem);
       }
     })
   }
