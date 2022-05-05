@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 // http://localhost:3001/
 app.get('/', function(request, response) {
 	// Render login template
-	response.sendFile(path.join(__dirname + '/login.html'));
+	response.sendFile(path.join(__dirname + '/homepage.handlebars'));
 });
 
 // http://localhost:3001/auth
@@ -44,7 +44,7 @@ app.post('/auth', function(request, response) {
 				request.session.loggedin = true;
 				request.session.username = username;
 				// Redirect to home page
-				response.redirect('/home');
+				response.redirect('/homepage.handlebars');
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
