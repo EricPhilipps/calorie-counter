@@ -3,11 +3,11 @@ console.log(calorieBtn);
 
 calorieBtn.addEventListener('click', function (event) {
     if(event.target.matches('button')){
-        let thisFood = event.target.dataset.food;
-        let thisAmount = event.target.dataset.amount;
-        let thisUnit = event.target.dataset.unit;
-        let thisCalorie = event.target.dataset.calorie;
-        let dateId = 1;
+        const thisFood = event.target.dataset.food;
+        const thisAmount = event.target.dataset.amount;
+        const thisUnit = event.target.dataset.unit;
+        const thisCalorie = event.target.dataset.calorie;
+
         console.log(thisFood);
         console.log(thisAmount);
         console.log(thisUnit);
@@ -16,12 +16,12 @@ calorieBtn.addEventListener('click', function (event) {
         fetch('/api/dbcalorie' , {
             method: 'POST',
             body: JSON.stringify({ 
-                thisFood,
-                thisAmount,
-                thisUnit,
-                thisCalorie,
-                dateId
-            })    
+                food_name: thisFood,
+                amount: thisAmount,
+                unit: thisUnit,
+                calories: thisCalorie
+            }),
+            headers: { 'Content-Type': 'application/json' },
         })
         .then(response => {
             return response.json();

@@ -16,6 +16,9 @@ const sess = {
   secret: 'SomeKeyword',
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 app.use(session(sess));

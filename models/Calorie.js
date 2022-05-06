@@ -23,18 +23,30 @@ Calorie.init(
             type: DataTypes.STRING,
             allowNull: true
         },
+        calories: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
         date_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: 'date',
+                model: 'dates',
                 key: 'id'
             },
         },
+        // profile_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true,
+        //     references: {
+        //         model: 'profile',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
-        timestamps: true,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'calorie'
