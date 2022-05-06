@@ -21,13 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 
-// http://localhost:3001/
+// http://localhost:3006/
 app.get('/', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/homepage.handlebars'));
 });
 
-// http://localhost:3001/auth
+// http://localhost:3006/auth
 app.post('/auth', function(request, response) {
 	// Capture the input fields
 	let username = request.body.username;
@@ -56,7 +56,7 @@ app.post('/auth', function(request, response) {
 	}
 });
 
-// http://localhost:3001/home
+// http://localhost:3006/home
 app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
@@ -69,4 +69,4 @@ app.get('/home', function(request, response) {
 	response.end();
 });
 
-app.listen(3001);
+app.listen(3006);
