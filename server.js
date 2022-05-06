@@ -3,9 +3,9 @@ const express = require('express');
 // Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers.js');
 
 const app = express();
@@ -16,6 +16,9 @@ const sess = {
   secret: 'SomeKeyword',
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
