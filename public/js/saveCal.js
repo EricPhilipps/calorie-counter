@@ -13,18 +13,18 @@ calorieBtn.addEventListener('click', function (event) {
         console.log(thisUnit);
         console.log(thisCalorie);
         // fetch!
-        // fetch('/api/dbcalorie' , {
-        //     method: 'POST',
-        //     body: JSON.stringify({ 
-        //         thisFood,
-        //         thisAmount,
-        //         thisUnit,
-        //         thisCalorie,
-        //         dateId
-        //     })
-        //     .then(response => {
-        //         // return response.json();
-        //     })
-        // })
+        fetch('/api/dbcalorie' , {
+            method: 'POST',
+            body: JSON.stringify({ 
+                thisFood,
+                thisAmount,
+                thisUnit,
+                thisCalorie,
+                dateId
+            })    
+        })
+        .then(response => {
+            return response.json();
+        })
     }
 });

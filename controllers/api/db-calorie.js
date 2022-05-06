@@ -11,8 +11,15 @@ router.post('/', async (req,res) => {
         //     constAddDate = await Date.create({CURRENTDATE})
         // }
 
-        // const userCalData = await Calorie.create(req.body);
-        // res.status(200).json(userCalData);
+        const userCalData = await Calorie.create({ 
+            food_name: req.body.thisFood,
+            amount: req.body.thisAmount,
+            unit: req.body.thisUnit,
+            date_id: req.body.thisFood,
+            food_name: req.body.thisFood,
+
+        });
+        res.status(200).json(userCalData);
         console.log('hello');
     }
 
@@ -20,3 +27,5 @@ router.post('/', async (req,res) => {
         res.status(400).json(err);
     }
 })
+
+module.exports = router;
